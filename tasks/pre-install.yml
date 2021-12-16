@@ -1,0 +1,27 @@
+---
+
+- block:
+
+    - name: Download microsoft repository definition ({{ ansible_os_family }})
+      get_url:
+        url: https://packages.microsoft.com/config/rhel/{{ ansible_distribution_major_version }}/prod.repo
+        dest: /etc/yum.repos.d/microsoft.repo
+        mode: '0644'
+
+  when: ansible_os_family == 'RedHat'
+
+- block:
+
+    - name: Install package with repo definition ({{ ansible_os_family }})
+      apt:
+        deb: https://packages.microsoft.com/config/debian/{{ ansible_distribution_major_version }}/packages-microsoft-prod.deb
+
+  when: ansible_distribution == 'Debian'
+
+- block:
+
+    - name: Install package with repo definition ({{ ansible_os_family }})
+      apt:
+        deb: https://packages.microsoft.com/config/ubuntu/{{ ansible_distribution_version }}/packages-microsoft-prod.deb
+
+  when: ansible_distribution == 'Ubuntu'

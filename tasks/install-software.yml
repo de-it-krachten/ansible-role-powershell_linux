@@ -1,37 +1,14 @@
 ---
 
-- name: Distribute microsoft GPG key to server
-  copy:
-    src: microsoft.asc
-    dest: /etc/rpm/microsoft.asc
-    mode: '0644'
-  become: yes
-
-- name: Import the microsoft GPG key
-  rpm_key:
-    state: present
-    key: /etc/rpm/microsoft.asc
-  become: yes
-
-- name: Add powershell repository
-  yum_repository:
-    name: "{{ ps_repo.name }}"
-    description: "{{ ps_repo.description }}"
-    baseurl: "{{ ps_repo.baseurl }}"
-    enabled: "{{ ps_repo.enabled }}"
-    gpgcheck: "{{ ps_repo.gpgcheck }}"
-  become: yes
-
 - name: Define package name to use
   set_fact:
     ps_pkg_name: "{{ ps_pkg_name }}-{{ ps_pkg_version }}"
   when: ps_pkg_version is defined
 
 - name: Install the powershell package
-  yum:
+  package:
     name: "{{ ps_pkg_name }}"
     state: "{{ ps_pkg_state }}"
-    disablerepo: "{{ disablerepo|default(omit) }}"
   become: yes
   when: ps_pkg_install|bool
 

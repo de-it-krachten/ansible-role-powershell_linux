@@ -1,5 +1,8 @@
 ---
 
+- name: Peform pre-install
+  include: pre-install.yml
+
 - name: Install powershell
   include: install-software.yml
 
