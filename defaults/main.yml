@@ -1,0 +1,22 @@
+---
+
+ps_pkg_install: True
+ps_pkg_name: 'powershell'
+ps_pkg_state: 'present'
+
+ps_script_dir: /tmp
+
+ps_scripts:
+  - install-module.ps1
+  - register-repository.ps1
+  - unregister-repository.ps1
+ps_scripts_additional: []
+ps_scripts_custom: []
+
+ps_repo:
+  name: packages-microsoft-com-prod
+  description: packages-microsoft-com-prod
+  baseurl: https://packages.microsoft.com/rhel/7/prod/
+  enabled: 1
+  gpgcheck: 1
+  gpgkey: https://packages.microsoft.com/keys/microsoft.asc

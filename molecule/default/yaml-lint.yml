@@ -1,0 +1,11 @@
+---
+
+extends: default
+
+rules:
+  line-length:
+    max: 160
+    level: warning
+  truthy: disable
+  colons:
+    max-spaces-after: -1

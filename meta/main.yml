@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  description: powershell-linux
+  author: Automation team
+  company: Gemeente Amsterdam
+  license: MIT
+  min_ansible_version: 2.7
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Windows
+      versions:
+        - all
+dependencies: []

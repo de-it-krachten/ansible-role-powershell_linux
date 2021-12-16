@@ -1,0 +1,9 @@
+---
+
+- name: Remove unwanted repositories
+  command: "{{ ps_script_dir }}/unregister-repository.ps1 -name {{ item.name }}"
+  loop: "{{ ps_repositories_rm|default([]) }}"
+  register: result
+  changed_when: result.rc == 1
+  failed_when: result.rc > 1
+  become: yes

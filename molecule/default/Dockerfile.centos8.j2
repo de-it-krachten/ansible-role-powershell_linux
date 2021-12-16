@@ -1,0 +1,11 @@
+# Molecule managed
+
+{% if item.registry is defined %}
+FROM {{ item.registry.url }}/{{ item.image }}
+{% else %}
+FROM {{ item.image }}
+{% endif %}
+
+RUN sed -i 's/https:\/\//http:\/\//' /etc/yum.repos.d/epel.repo
+RUN sed -i 's/https:\/\//http:\/\//' /etc/yum.repos.d/epel-modular.repo
+RUN dnf update -y

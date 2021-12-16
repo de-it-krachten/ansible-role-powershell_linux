@@ -1,0 +1,60 @@
+---
+
+- name: Distribute microsoft GPG key to server
+  copy:
+    src: microsoft.asc
+    dest: /etc/rpm/microsoft.asc
+    mode: '0644'
+  become: yes
+
+- name: Import the microsoft GPG key
+  rpm_key:
+    state: present
+    key: /etc/rpm/microsoft.asc
+  become: yes
+
+- name: Add powershell repository
+  yum_repository:
+    name: "{{ ps_repo.name }}"
+    description: "{{ ps_repo.description }}"
+    baseurl: "{{ ps_repo.baseurl }}"
+    enabled: "{{ ps_repo.enabled }}"
+    gpgcheck: "{{ ps_repo.gpgcheck }}"
+  become: yes
+
+- name: Define package name to use
+  set_fact:
+    ps_pkg_name: "{{ ps_pkg_name }}-{{ ps_pkg_version }}"
+  when: ps_pkg_version is defined
+
+- name: Install the powershell package
+  yum:
+    name: "{{ ps_pkg_name }}"
+    state: "{{ ps_pkg_state }}"
+    disablerepo: "{{ disablerepo|default(omit) }}"
+  become: yes
+  when: ps_pkg_install|bool
+
+- name: Check if the helper script directory exists
+  stat:
+    path: "{{ ps_script_dir }}"
+  register: result
+  become: yes
+
+- name: Create helper script direcory if it does not exist
+  file:
+    path: "{{ ps_script_dir }}"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: "0755"
+  when: not result.stat.exists
+  become: yes
+
+- name: Distribute all helper scripts
+  copy:
+    src: "{{ item }}"
+    dest: "{{ ps_script_dir }}"
+    mode: '0755'
+  loop: "{{ ps_scripts }}"
+  become: yes

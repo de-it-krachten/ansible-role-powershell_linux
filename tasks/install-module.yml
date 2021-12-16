@@ -1,0 +1,9 @@
+---
+
+- name: Install all required modules
+  command: "{{ ps_script_dir }}/install-module.ps1 -name {{ item.name }} -version {{ item.version }}"
+  loop: "{{ ps_modules|default([]) }}"
+  register: result
+  changed_when: result.rc == 1
+  failed_when: result.rc > 1
+  become: yes

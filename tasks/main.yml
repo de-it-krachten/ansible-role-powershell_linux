@@ -1,0 +1,20 @@
+---
+
+- name: Install powershell
+  include: install-software.yml
+
+- name: Unregister all unwanted repositories
+  include: unregister-repository.yml
+
+- name: Register the repositories needed
+  include: register-repository.yml
+
+- name: Install all modules
+  include: install-module.yml
+
+- name: Copy powershell scripts
+  copy:
+    src: "{{ item }}"
+    dest: /usr/local/bin/{{ item }}
+    mode: '0755'
+  loop: "{{ ps_scripts_custom }}"
