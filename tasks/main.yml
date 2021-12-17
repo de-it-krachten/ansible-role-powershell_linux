@@ -20,4 +20,4 @@
     src: "{{ item }}"
     dest: /usr/local/bin/{{ item }}
     mode: '0755'
-  loop: "{{ ps_scripts_custom }}"
+  loop: "{{ powershell_linux_scripts_custom }}"

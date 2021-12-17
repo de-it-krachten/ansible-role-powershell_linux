@@ -23,18 +23,18 @@ Supported platforms
 Role Variables
 --------------
 <pre><code>
-ps_pkg_install: True
-ps_pkg_name: 'powershell'
-ps_pkg_state: 'present'
 
-ps_script_dir: /tmp
 
-ps_scripts:
+powershell_linux_package: powershell
+
+powershell_linux_script_dir: /tmp
+
+powershell_linux_scripts:
   - install-module.ps1
   - register-repository.ps1
   - unregister-repository.ps1
-ps_scripts_additional: []
-ps_scripts_custom: []
+powershell_linux_scripts_additional: []
+powershell_linux_scripts_custom: []
 </pre></code>
 
 
@@ -42,6 +42,7 @@ Example Playbook
 ----------------
 
 <pre><code>
+
 - name: Converge
   hosts: all
   tasks:

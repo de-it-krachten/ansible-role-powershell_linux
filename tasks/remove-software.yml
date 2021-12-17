@@ -2,20 +2,20 @@
 
 - name: Remove all helper scripts
   file:
-    path: "{{ ps_script_dir }}/{{ item }}"
+    path: "{{ powershell_linux_script_dir }}/{{ item }}"
     state: absent
-  loop: "{{ ps_scripts }}"
+  loop: "{{ powershell_linux_scripts }}"
   become: yes
 
 - name: Remove the powershell package
-  yum:
-    name: "{{ ps_pkg_name }}"
+  package:
+    name: "{{ powershell_linux_package }}"
     state: absent
   become: yes
 
 - name: Remove powershell repository
   yum_repository:
-    name: "{{ ps_repo.name }}"
+    name: "{{ powershell_linux_repo.name }}"
     state: absent
   become: yes
 
