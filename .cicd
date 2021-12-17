@@ -67,6 +67,9 @@ molecule:
   vars:
     converge:
       powershell_linux_repositories: []
+      powershell_linux_modules:
+        - name: VMware.PowerCLI
+          version: 12.3.0.17860403
 #      powershell_linux_repositories: 
 #        - name: myNuGetSource
 #          url: https://www.myget.org/F/powershellgetdemo/api/v2
