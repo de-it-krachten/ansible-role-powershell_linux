@@ -4,7 +4,7 @@
 role: ansible-role-powershell_linux
 role_short: powershell_linux
 role_description: |
-  WRITE HERE
+  Installs & configures Powershell on various Linux distributions
 
 # Supported platform
 platforms:
@@ -64,6 +64,13 @@ molecule:
     - debian11
     - ubuntu1804
     - ubuntu2004
+  vars:
+    converge:
+      powershell_linux_repositories: []
+#      powershell_linux_repositories: 
+#        - name: myNuGetSource
+#          url: https://www.myget.org/F/powershellgetdemo/api/v2
+#          trust: Trusted
 
 # templates
 ci_templates:

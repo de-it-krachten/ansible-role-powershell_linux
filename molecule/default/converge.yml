@@ -1,6 +1,8 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    powershell_linux_repositories: []
   tasks:
 
     - name: "Include role 'ansible-role-powershell_linux'"
