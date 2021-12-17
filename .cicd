@@ -4,7 +4,7 @@
 role: ansible-role-powershell_linux
 role_short: powershell_linux
 role_description: |
-  WRITE HERE
+  Install & configures Powershell on Linux
 
 # Supported platform
 platforms:
