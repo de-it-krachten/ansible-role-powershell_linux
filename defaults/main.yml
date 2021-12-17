@@ -1,0 +1,12 @@
+---
+
+powershell_linux_package: powershell
+
+powershell_linux_script_dir: /usr/local/bin
+
+powershell_linux_scripts:
+  - install-module.ps1
+  - register-repository.ps1
+  - unregister-repository.ps1
+powershell_linux_scripts_additional: []
+powershell_linux_scripts_custom: []

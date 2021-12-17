@@ -1,0 +1,9 @@
+---
+
+- name: Remove unwanted repositories
+  command: "{{ powershell_linux_script_dir }}/unregister-repository.ps1 -name {{ item.name }}"
+  loop: "{{ powershell_linux_repositories_rm|default([]) }}"
+  register: result
+  changed_when: result.rc == 1
+  failed_when: result.rc > 1
+  become: yes

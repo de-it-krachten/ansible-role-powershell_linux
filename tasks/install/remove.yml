@@ -1,0 +1,30 @@
+---
+
+- name: Remove all helper scripts
+  file:
+    path: "{{ powershell_linux_script_dir }}/{{ item }}"
+    state: absent
+  loop: "{{ powershell_linux_scripts }}"
+  become: yes
+
+- name: Remove the powershell package
+  package:
+    name: "{{ powershell_linux_package }}"
+    state: absent
+  become: yes
+
+- name: Remove powershell repository
+  yum_repository:
+    name: "{{ powershell_linux_repo.name }}"
+    state: absent
+  become: yes
+
+- name: Delete installation & module directories
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /usr/local/share/powershell
+    - /opt/microsoft/powershell
+    - /root/.cache/powershell
+  become: yes
