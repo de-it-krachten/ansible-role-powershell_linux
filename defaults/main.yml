@@ -1,12 +1,17 @@
 ---
 
+# name of the package
 powershell_linux_package: powershell
 
+# Directory to copy helper scripts to
 powershell_linux_script_dir: /usr/local/bin
 
+# List of default helper scripts
 powershell_linux_scripts:
   - install-module.ps1
+  - remove-module.ps1
   - register-repository.ps1
   - unregister-repository.ps1
-powershell_linux_scripts_additional: []
+
+# List of custom helper scripts
 powershell_linux_scripts_custom: []
