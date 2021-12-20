@@ -19,7 +19,6 @@ Supported platforms
 - Ubuntu 20.04 LTS
 
 
-
 Role Variables
 --------------
 <pre><code>
