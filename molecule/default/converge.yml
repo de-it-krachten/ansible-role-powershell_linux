@@ -1,11 +1,10 @@
 ---
+
 - name: Converge
   hosts: all
   vars:
-    powershell_linux_repositories: []
     powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.3.0.17860403'}]
   tasks:
-
-    - name: "Include role 'ansible-role-powershell_linux'"
+    - name: Include role 'ansible-role-powershell_linux'
       include_role:
-        name: "ansible-role-powershell_linux"
+        name: ansible-role-powershell_linux
