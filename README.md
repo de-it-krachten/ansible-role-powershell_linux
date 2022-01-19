@@ -13,10 +13,13 @@ Supported platforms
 
 - CentOS 7
 - CentOS 8
+- RockyLinux 8
+- AlmaLinux 8
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
+
 
 
 Role Variables
@@ -44,13 +47,12 @@ Example Playbook
 ----------------
 
 <pre><code>
-- name: Converge
+- name: sample playbook for role 'powershell_linux'
   hosts: all
   vars:
-    powershell_linux_repositories: []
+    powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.3.0.17860403'}]
   tasks:
-
-    - name: "Include role 'ansible-role-powershell_linux'"
+    - name: Include role 'powershell_linux'
       include_role:
-        name: "ansible-role-powershell_linux"
+        name: powershell_linux
 </pre></code>

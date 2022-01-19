@@ -1,0 +1,9 @@
+generic:
+  role_description: |
+    Installs & configures Powershell on various Linux distributions
+
+molecule:
+  converge:
+    vars:
+      powershell_linux_modules:
+        - { name: VMware.PowerCLI, version: 12.3.0.17860403 }
