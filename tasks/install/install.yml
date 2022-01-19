@@ -20,6 +20,7 @@
       apt:
         update_cache: yes
         cache_valid_time: 1
+      tags: molecule-idempotence-notest
 
   when: ansible_distribution == 'Debian'
 
@@ -33,6 +34,7 @@
       apt:
         update_cache: yes
         cache_valid_time: 1
+      tags: molecule-idempotence-notest
 
   when: ansible_distribution == 'Ubuntu'
 
