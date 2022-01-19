@@ -1,16 +1,16 @@
 ---
 
 - name: Install powershell
-  include: install/install.yml
+  include_tasks: install/install.yml
 
 - name: Unregister all unwanted repositories
-  include: repository/unregister.yml
+  include_tasks: repository/unregister.yml
 
 - name: Register the repositories needed
-  include: repository/register.yml
+  include_tasks: repository/register.yml
 
 - name: Install all modules
-  include: module/install.yml
+  include_tasks: module/install.yml
 
 - name: Copy powershell scripts
   copy:
