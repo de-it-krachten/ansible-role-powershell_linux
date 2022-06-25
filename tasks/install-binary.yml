@@ -1,0 +1,73 @@
+---
+
+- name: Remove installed package
+  package:
+    name: powershell
+    state: absent
+
+- name: Get latest version
+  uri:
+    url: https://api.github.com/repos/PowerShell/PowerShell/releases/latest
+  register: _pwsh_available
+
+- name: Get installed version
+  shell: |
+    set -o pipefail
+    pwsh --version | awk '{print $2}'
+  args:
+    executable: /bin/bash
+  changed_when: false
+  failed_when: false
+  register: _pwsh_installed
+
+- name: Set latest release
+  set_fact:
+    powershell_version: "{{ _pwsh_available.json.tag_name[1:] }}"
+    powershell_version_major: "{{ _pwsh_available.json.tag_name[1] }}"
+    powershell_version_installed: "{{ _pwsh_installed.stdout }}"
+
+- name: Show versions
+  debug:
+    msg:
+      powershell_version_installed: "{{ _pwsh_installed.stdout }}"
+      powershell_version_available: "{{ _pwsh_available.json.tag_name[1:] }}"
+
+- block:
+
+    - name: Install required packages
+      package:
+        name: "{{ powershell_packages }}"
+        state: present
+
+    - name: Create installation directory
+      file:
+        path: /opt/microsoft/powershell/{{ powershell_version_major }}
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Install powershell
+      unarchive:
+        src: https://github.com/PowerShell/PowerShell/releases/download/v{{ powershell_version }}/powershell-{{ powershell_version }}-linux-x64.tar.gz
+        dest: /opt/microsoft/powershell/{{ powershell_version_major }}
+        remote_src: yes
+ 
+    - name: Make pwsh executable
+      file:
+        path: /opt/microsoft/powershell/{{ powershell_version_major }}/pwsh
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: Create symbolic link from /usr/bin
+      file:
+        src: /opt/microsoft/powershell/{{ powershell_version_major }}/pwsh
+        dest: /usr/bin/pwsh
+        owner: root
+        group: root
+        state: link
+
+  become: yes
+  when:
+    - powershell_version_installed|length == 0 or powershell_version is version(powershell_version_installed, '>')

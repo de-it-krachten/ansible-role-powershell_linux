@@ -1,7 +1,20 @@
 ---
 
+- name: Load variables based on OS type
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "family-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+        - "family-{{ ansible_os_family }}.yml"
+        - default.yml
+      paths:
+        - 'vars'
+
 - name: Install powershell
-  include_tasks: install/install.yml
+  include_tasks: install.yml
 
 - name: Unregister all unwanted repositories
   include_tasks: repository/unregister.yml

@@ -6,8 +6,7 @@
 Installs & configures Powershell on various Linux distributions
 
 
-Platforms
---------------
+## Platforms
 
 Supported platforms
 
@@ -20,12 +19,15 @@ Supported platforms
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Fedora 35
+- Fedora 36
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
 
-Role Variables
---------------
+## Role Variables
+### defaults/main.yml
 <pre><code>
 # name of the package
 powershell_linux_package: powershell
@@ -44,10 +46,32 @@ powershell_linux_scripts:
 powershell_linux_scripts_custom: []
 </pre></code>
 
+### vars/Fedora.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: binary
 
-Example Playbook
-----------------
+# List of package required
+powershell_packages:
+  - libicu
+</pre></code>
 
+### vars/family-RedHat.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### vars/family-Debian.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+
+
+## Example Playbook
+### molecule/default/converge.yml
 <pre><code>
 - name: sample playbook for role 'powershell_linux'
   hosts: all
