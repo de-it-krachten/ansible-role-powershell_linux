@@ -1,0 +1,8 @@
+---
+
+# Type of installation (package/binary)
+powershell_install_type: binary
+
+# List of package required
+powershell_packages:
+  - libicu

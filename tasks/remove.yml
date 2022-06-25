@@ -7,17 +7,21 @@
   loop: "{{ powershell_linux_scripts }}"
   become: yes
 
-- name: Remove the powershell package
-  package:
-    name: "{{ powershell_linux_package }}"
-    state: absent
-  become: yes
+- block:
 
-- name: Remove powershell repository
-  yum_repository:
-    name: "{{ powershell_linux_repo.name }}"
-    state: absent
-  become: yes
+    - name: Remove the powershell package
+      package:
+        name: "{{ powershell_linux_package }}"
+        state: absent
+      become: yes
+
+    - name: Remove powershell repository
+      yum_repository:
+        name: "{{ powershell_linux_repo.name }}"
+        state: absent
+      become: yes
+
+  when: powershell_install_type == 'package'
 
 - name: Delete installation & module directories
   file:
@@ -27,4 +31,5 @@
     - /usr/local/share/powershell
     - /opt/microsoft/powershell
     - /root/.cache/powershell
+    - /usr/bin/pwsh
   become: yes
