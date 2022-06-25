@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.0.0...v1.1.0) (2022-06-25)
+
+
+### Features
+
+* Add support for Fedora ([832560e](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/832560eecd0a2ab91378059ad8720c5584df78c4))
+
 # 1.0.0 (2022-01-19)
 
 
