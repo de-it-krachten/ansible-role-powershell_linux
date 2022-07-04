@@ -72,6 +72,16 @@ powershell_install_type: package
 powershell_install_type: package
 </pre></code>
 
+### vars/family-RedHat-9.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: binary
+
+# List of package required
+powershell_packages:
+  - libicu
+</pre></code>
+
 
 
 ## Example Playbook
