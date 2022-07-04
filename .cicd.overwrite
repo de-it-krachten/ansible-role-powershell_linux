@@ -4,6 +4,15 @@ generic:
   role_description: |
     Installs & configures Powershell on various Linux distributions
 
+# Supported platforms
+platforms:
+  rhel9:
+    ci: false
+    supported: false
+  almalinux9:
+    ci: false
+    supported: false
+
 molecule:
   converge:
     vars:
