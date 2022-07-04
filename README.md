@@ -14,7 +14,8 @@ Supported platforms
 - Red Hat Enterprise Linux 8<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
-- AlmaLinux 8<sup>1</sup>
+- OracleLinux 8
+- AlmaLinux 8
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
@@ -66,6 +67,16 @@ powershell_install_type: package
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: package
+</pre></code>
+
+### vars/family-RedHat-9.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: binary
+
+# List of package required
+powershell_packages:
+  - libicu
 </pre></code>
 
 

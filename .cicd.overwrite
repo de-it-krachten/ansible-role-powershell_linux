@@ -1,22 +1,19 @@
+---
+
 generic:
   role_description: |
     Installs & configures Powershell on various Linux distributions
 
-github:
-  fail_fast: false
-
-platforms_add:
-  - name: Fedora 35
-    image: fedora35
-  - name: Fedora 36
-    image: fedora36
+# Supported platforms
+platforms:
+  rhel9:
+    ci: false
+    supported: false
+  almalinux9:
+    ci: false
+    supported: false
 
 molecule:
-  platforms_add:
-    - name: fedora35
-      image: "geerlingguy/docker-fedora35-ansible:latest"
-    - name: fedora36
-      image: "geerlingguy/docker-fedora36-ansible:latest"
   converge:
     vars:
       powershell_linux_modules:
