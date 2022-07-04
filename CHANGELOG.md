@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.1.0...v1.2.0) (2022-07-04)
+
+
+### Features
+
+* Add support for RHEL9 ([21f4263](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/21f4263dc194882ff18c530e33430dd788e448a8))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.0.0...v1.1.0) (2022-06-25)
 
 
