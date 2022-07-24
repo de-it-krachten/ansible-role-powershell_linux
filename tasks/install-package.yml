@@ -1,6 +1,7 @@
 ---
 
-- block:
+- name: Setup repository RedHat family
+  block:
 
     - name: Download microsoft repository definition ({{ ansible_os_family }})
       get_url:
@@ -11,7 +12,8 @@
   become: yes
   when: ansible_os_family == 'RedHat'
 
-- block:
+- name: Setup repository Debian family
+  block:
 
     - name: Install package with repo definition ({{ ansible_distribution }})
       apt:
@@ -26,7 +28,8 @@
   become: yes
   when: ansible_distribution == 'Debian'
 
-- block:
+- name: Install on Ubuntu
+  block:
 
     - name: Install package with repo definition ({{ ansible_distribution }})
       apt:

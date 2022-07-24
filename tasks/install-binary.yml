@@ -32,7 +32,8 @@
       powershell_version_installed: "{{ _pwsh_installed.stdout }}"
       powershell_version_available: "{{ _pwsh_available.json.tag_name[1:] }}"
 
-- block:
+- name: Install powershell from archive
+  block:
 
     - name: Install required packages
       package:
