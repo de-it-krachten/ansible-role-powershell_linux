@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.2.0...v1.3.0) (2022-07-28)
+
+
+### Features
+
+* Implement ansible-lint v6 support ([b1c3c34](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/b1c3c34c516ac1e5ed553d57b1a246cc1082ccb3))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.1.0...v1.2.0) (2022-07-04)
 
 
