@@ -9,6 +9,9 @@ platforms:
   rhel9:
     ci: false
     supported: false
+  rockylinux9:
+    ci: false
+    supported: false
   almalinux9:
     ci: false
     supported: false
@@ -18,7 +21,7 @@ molecule:
     vars:
       powershell_linux_modules:
         - name: VMware.PowerCLI
-          version: 12.3.0.17860403
+          version: 12.7.0.20091289
 #      powershell_linux_repositories: 
 #        - name: myNuGetSource
 #          url: https://www.myget.org/F/powershellgetdemo/api/v2

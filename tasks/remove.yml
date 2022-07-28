@@ -7,7 +7,8 @@
   loop: "{{ powershell_linux_scripts }}"
   become: yes
 
-- block:
+- name: Remove package
+  block:
 
     - name: Remove the powershell package
       package:
