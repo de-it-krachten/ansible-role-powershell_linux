@@ -1,13 +1,14 @@
 ---
 
 - name: Register all required repositories  # noqa 204
-  command: |
+  # possible ambiguous replacement: command : ansible.builtin.command | community.ciscosmb.command | community.routeros.command
+  ansible.builtin.command: |
     {{ powershell_linux_script_dir }}/register-repository.ps1 \
       -name {{ item.name }} \
       -SourceLocation {{ item.url }} \
       -PublishLocation {{ item.url }}/Packages \
       -InstallationPolicy {{ item.trust }}
-  loop: "{{ powershell_linux_repositories|default([]) }}"
+  loop: "{{ powershell_linux_repositories | default([]) }}"
   register: result
   changed_when: result.rc == 1
   failed_when: result.rc > 1

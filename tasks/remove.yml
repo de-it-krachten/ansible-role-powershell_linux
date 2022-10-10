@@ -1,31 +1,30 @@
 ---
 
 - name: Remove all helper scripts
-  file:
+  ansible.builtin.file:
     path: "{{ powershell_linux_script_dir }}/{{ item }}"
     state: absent
   loop: "{{ powershell_linux_scripts }}"
   become: yes
 
 - name: Remove package
+  when: powershell_install_type == 'package'
   block:
 
     - name: Remove the powershell package
-      package:
+      ansible.builtin.package:
         name: "{{ powershell_linux_package }}"
         state: absent
       become: yes
 
     - name: Remove powershell repository
-      yum_repository:
+      ansible.builtin.yum_repository:
         name: "{{ powershell_linux_repo.name }}"
         state: absent
       become: yes
 
-  when: powershell_install_type == 'package'
-
 - name: Delete installation & module directories
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: absent
   loop:

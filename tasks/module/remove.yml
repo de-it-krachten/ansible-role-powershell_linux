@@ -1,8 +1,9 @@
 ---
 
 - name: Install all required modules
-  command: "{{ powershell_linux_script_dir }}/install-module.ps1 -name {{ item.name }} -version {{ item.version }}"
-  loop: "{{ powershell_linux_modules|default([]) }}"
+  # possible ambiguous replacement: command : ansible.builtin.command | community.ciscosmb.command | community.routeros.command
+  ansible.builtin.command: "{{ powershell_linux_script_dir }}/install-module.ps1 -name {{ item.name }} -version {{ item.version }}"
+  loop: "{{ powershell_linux_modules | default([]) }}"
   register: result
   changed_when: result.rc == 1
   failed_when: result.rc > 1

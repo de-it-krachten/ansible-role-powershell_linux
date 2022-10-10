@@ -7,5 +7,5 @@
     powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.7.0.20091289'}]
   tasks:
     - name: Include role 'ansible-role-powershell_linux'
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-role-powershell_linux

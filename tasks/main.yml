@@ -1,7 +1,7 @@
 ---
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -14,19 +14,19 @@
         - 'vars'
 
 - name: Install powershell
-  include_tasks: install.yml
+  ansible.builtin.include_tasks: install.yml
 
 - name: Unregister all unwanted repositories
-  include_tasks: repository/unregister.yml
+  ansible.builtin.include_tasks: repository/unregister.yml
 
 - name: Register the repositories needed
-  include_tasks: repository/register.yml
+  ansible.builtin.include_tasks: repository/register.yml
 
 - name: Install all modules
-  include_tasks: module/install.yml
+  ansible.builtin.include_tasks: module/install.yml
 
 - name: Copy powershell scripts
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ powershell_linux_script_dir }}/{{ item }}"
     mode: '0755'
