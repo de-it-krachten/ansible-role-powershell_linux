@@ -1,51 +1,48 @@
 ---
 
 - name: Setup repository RedHat family
+  become: yes
+  when: ansible_os_family == 'RedHat'
   block:
 
-    - name: Download microsoft repository definition ({{ ansible_os_family }})
-      get_url:
+    - name: Download microsoft repository definition ({{ ansible_os_family }})  # noqa name[template]
+      ansible.builtin.get_url:
         url: https://packages.microsoft.com/config/rhel/{{ ansible_distribution_major_version }}/prod.repo
         dest: /etc/yum.repos.d/microsoft.repo
         mode: '0644'
 
-  become: yes
-  when: ansible_os_family == 'RedHat'
-
 - name: Setup repository Debian family
+  become: yes
+  when: ansible_distribution == 'Debian'
   block:
 
-    - name: Install package with repo definition ({{ ansible_distribution }})
-      apt:
+    - name: Install package with repo definition ({{ ansible_distribution }})  # noqa name[template]
+      ansible.builtin.apt:
         deb: https://packages.microsoft.com/config/debian/{{ ansible_distribution_major_version }}/packages-microsoft-prod.deb
 
     - name: Update APT cache
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
         cache_valid_time: 1
       tags: molecule-idempotence-notest
 
-  become: yes
-  when: ansible_distribution == 'Debian'
-
 - name: Install on Ubuntu
+  become: yes
+  when: ansible_distribution == 'Ubuntu'
   block:
 
-    - name: Install package with repo definition ({{ ansible_distribution }})
-      apt:
+    - name: Install package with repo definition ({{ ansible_distribution }})  # noqa name[template]
+      ansible.builtin.apt:
         deb: https://packages.microsoft.com/config/ubuntu/{{ ansible_distribution_version }}/packages-microsoft-prod.deb
 
     - name: Update APT cache
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
         cache_valid_time: 1
       tags: molecule-idempotence-notest
 
-  become: yes
-  when: ansible_distribution == 'Ubuntu'
-
 - name: Install the powershell package
-  package:
+  ansible.builtin.package:
     name: "{{ powershell_linux_package }}"
     state: present
   become: yes

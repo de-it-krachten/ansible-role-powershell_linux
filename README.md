@@ -6,6 +6,15 @@
 Installs & configures Powershell on various Linux distributions
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+
 ## Platforms
 
 Supported platforms
@@ -14,7 +23,6 @@ Supported platforms
 - Red Hat Enterprise Linux 8<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
-- RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
 - Debian 10 (Buster)
@@ -47,6 +55,7 @@ powershell_linux_scripts:
 # List of custom helper scripts
 powershell_linux_scripts_custom: []
 </pre></code>
+
 
 ### vars/Fedora.yml
 <pre><code>
@@ -89,9 +98,9 @@ powershell_packages:
   hosts: all
   become: "{{ molecule['converge']['become'] | default('yes') }}"
   vars:
-    powershell_linux_modules: [{'name': 'VMware.PowerCLI'}]
+    powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.7.0.20091289'}]
   tasks:
     - name: Include role 'powershell_linux'
-      include_role:
+      ansible.builtin.include_role:
         name: powershell_linux
 </pre></code>

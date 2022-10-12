@@ -1,16 +1,16 @@
 ---
 
 - name: Install powershell
-  include_tasks: install-{{ powershell_install_type }}.yml
+  ansible.builtin.include_tasks: install-{{ powershell_install_type }}.yml
 
 - name: Check if the helper script directory exists
-  stat:
+  ansible.builtin.stat:
     path: "{{ powershell_linux_script_dir }}"
   register: result
   become: yes
 
 - name: Create helper script direcory if it does not exist
-  file:
+  ansible.builtin.file:
     path: "{{ powershell_linux_script_dir }}"
     state: directory
     owner: "root"
@@ -20,7 +20,7 @@
   become: yes
 
 - name: Distribute all helper scripts
-  copy:
+  ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ powershell_linux_script_dir }}"
     owner: "root"
