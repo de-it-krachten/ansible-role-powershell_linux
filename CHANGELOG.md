@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.3.0...v1.4.0) (2022-10-12)
+
+
+### Features
+
+* Move to FQCN ([7259ddc](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/7259ddc2ce57ffdb5feeeab601690c20386036d4))
+* Update CI to latest standards ([5b858f7](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/5b858f7d87e52863cc79e65560fe0883ef95c3c5))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.2.0...v1.3.0) (2022-07-28)
 
 
