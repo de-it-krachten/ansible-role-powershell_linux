@@ -58,7 +58,13 @@ powershell_linux_scripts_custom: []
 </pre></code>
 
 
-### vars/Fedora.yml
+### vars/family-Debian.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### vars/family-RedHat-9.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
@@ -74,13 +80,7 @@ powershell_packages:
 powershell_install_type: package
 </pre></code>
 
-### vars/family-Debian.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: package
-</pre></code>
-
-### vars/family-RedHat-9.yml
+### vars/Fedora.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
