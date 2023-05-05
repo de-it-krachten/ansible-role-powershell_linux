@@ -24,14 +24,15 @@ Supported platforms
 - CentOS 7
 - RockyLinux 8
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 35
 - Fedora 36
+- Fedora 37
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -57,22 +58,6 @@ powershell_linux_scripts_custom: []
 </pre></code>
 
 
-### vars/Fedora.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: binary
-
-# List of package required
-powershell_packages:
-  - libicu
-</pre></code>
-
-### vars/family-RedHat.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: package
-</pre></code>
-
 ### vars/family-Debian.yml
 <pre><code>
 # Type of installation (package/binary)
@@ -89,6 +74,22 @@ powershell_packages:
   - libicu
 </pre></code>
 
+### vars/family-RedHat.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### vars/Fedora.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: binary
+
+# List of package required
+powershell_packages:
+  - libicu
+</pre></code>
+
 
 
 ## Example Playbook
@@ -96,7 +97,7 @@ powershell_packages:
 <pre><code>
 - name: sample playbook for role 'powershell_linux'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   vars:
     powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.7.0.20091289'}]
   tasks:
