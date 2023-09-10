@@ -26,13 +26,12 @@ Supported platforms
 - OracleLinux 8
 - OracleLinux 9
 - AlmaLinux 8
-- Debian 10 (Buster)
+- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
-- Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 36
 - Fedora 37
+- Fedora 38
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -57,14 +56,13 @@ powershell_linux_scripts:
 powershell_linux_scripts_custom: []
 </pre></code>
 
-
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: package
 </pre></code>
 
-### vars/family-RedHat-9.yml
+### defaults/family-RedHat-9.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
@@ -74,13 +72,19 @@ powershell_packages:
   - libicu
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-Suse.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: package
 </pre></code>
 
-### vars/Fedora.yml
+### defaults/family-RedHat.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### defaults/Fedora.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
@@ -89,6 +93,7 @@ powershell_install_type: binary
 powershell_packages:
   - libicu
 </pre></code>
+
 
 
 
