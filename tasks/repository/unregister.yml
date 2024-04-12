@@ -1,7 +1,6 @@
 ---
 
 - name: Remove unwanted repositories
-  # possible ambiguous replacement: command : ansible.builtin.command | community.ciscosmb.command | community.routeros.command
   ansible.builtin.command: "{{ powershell_linux_script_dir }}/unregister-repository.ps1 -name {{ item.name }}"
   loop: "{{ powershell_linux_repositories_rm | default([]) }}"
   register: result

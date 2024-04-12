@@ -13,7 +13,7 @@ Installs & configures Powershell on various Linux distributions
 None
 
 #### Collections
-- community.general
+None
 
 ## Platforms
 
@@ -26,7 +26,6 @@ Supported platforms
 - OracleLinux 8
 - OracleLinux 9
 - AlmaLinux 8
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
@@ -56,7 +55,23 @@ powershell_linux_scripts:
 powershell_linux_scripts_custom: []
 </pre></code>
 
-### defaults/family-Debian.yml
+### defaults/Fedora.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: binary
+
+# List of package required
+powershell_packages:
+  - libicu
+</pre></code>
+
+### defaults/family-RedHat.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### defaults/family-Suse.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: package
@@ -72,26 +87,10 @@ powershell_packages:
   - libicu
 </pre></code>
 
-### defaults/family-Suse.yml
+### defaults/family-Debian.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: package
-</pre></code>
-
-### defaults/family-RedHat.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: package
-</pre></code>
-
-### defaults/Fedora.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: binary
-
-# List of package required
-powershell_packages:
-  - libicu
 </pre></code>
 
 
@@ -102,9 +101,11 @@ powershell_packages:
 <pre><code>
 - name: sample playbook for role 'powershell_linux'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
-    powershell_linux_modules: [{'name': 'VMware.PowerCLI', 'version': '12.7.0.20091289'}]
+    powershell_linux_modules:
+      - name: VMware.PowerCLI
+        version: 12.7.0.20091289
   tasks:
     - name: Include role 'powershell_linux'
       ansible.builtin.include_role:
