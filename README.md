@@ -29,8 +29,9 @@ Supported platforms
 - Debian 11 (Bullseye)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -55,7 +56,13 @@ powershell_linux_scripts:
 powershell_linux_scripts_custom: []
 </pre></code>
 
-### defaults/Fedora.yml
+### defaults/family-Debian.yml
+<pre><code>
+# Type of installation (package/binary)
+powershell_install_type: package
+</pre></code>
+
+### defaults/family-RedHat-9.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
@@ -77,7 +84,7 @@ powershell_install_type: package
 powershell_install_type: package
 </pre></code>
 
-### defaults/family-RedHat-9.yml
+### defaults/Fedora.yml
 <pre><code>
 # Type of installation (package/binary)
 powershell_install_type: binary
@@ -85,12 +92,6 @@ powershell_install_type: binary
 # List of package required
 powershell_packages:
   - libicu
-</pre></code>
-
-### defaults/family-Debian.yml
-<pre><code>
-# Type of installation (package/binary)
-powershell_install_type: package
 </pre></code>
 
 
