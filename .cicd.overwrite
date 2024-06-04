@@ -24,6 +24,9 @@ platforms:
   debian12:
     ci: false
     supported: false
+  ubuntu2404:
+    ci: false
+    supported: false
 
 molecule:
   converge:
