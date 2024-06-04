@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.5.0...v1.6.0) (2024-06-04)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([538d913](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/538d9136421820f9a2c8b744682d5456b2189070))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.4.0...v1.5.0) (2023-09-10)
 
 
