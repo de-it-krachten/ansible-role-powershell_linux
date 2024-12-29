@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.6.0...v1.7.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([d42b7a9](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/d42b7a9276b433ba5ee725e1f0fa078ec3472390))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.5.0...v1.6.0) (2024-06-04)
 
 
