@@ -22,13 +22,11 @@ Supported platforms
 - Red Hat Enterprise Linux 8<sup>1</sup>
 - RockyLinux 8
 - OracleLinux 8
-- OracleLinux 9
 - AlmaLinux 8
 - Debian 11 (Bullseye)
-- Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 40
 - Fedora 41
+- Fedora 42
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
