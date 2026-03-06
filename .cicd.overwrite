@@ -7,44 +7,38 @@ generic:
 # Supported platforms
 platforms:
   rhel9:
-    ci: false
     supported: false
+    ci: false
   rhel10:
-    ci: false
     supported: false
+    ci: false
   rockylinux9:
-    ci: false
     supported: false
+    ci: false
   rockylinux10:
-    ci: false
     supported: false
-  almalinux9:
     ci: false
-    supported: false
-  almalinux10:
-    ci: false
-    supported: false
   oraclelinux9:
-    ci: false
     supported: false
+    ci: false
   oraclelinux10:
-    ci: false
     supported: false
-  opensuse15:
     ci: false
+  almalinux9:
     supported: false
-  sles15:
     ci: false
+  almalinux10:
     supported: false
+    ci: false
   debian12:
-    ci: false
     supported: false
+    ci: false
   debian13:
-    ci: false
     supported: false
+    ci: false
   ubuntu2404:
-    ci: false
     supported: false
+    ci: false
 
 molecule:
   converge:
