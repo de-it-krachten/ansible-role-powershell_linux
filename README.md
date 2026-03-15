@@ -25,11 +25,12 @@ Supported platforms
 - AlmaLinux 8
 - Debian 11 (Bullseye)
 - Ubuntu 22.04 LTS
-- Fedora 41
 - Fedora 42
+- Fedora 43
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
+
 
 ## Role Variables
 ### defaults/main.yml
@@ -99,6 +100,7 @@ powershell_packages:
   hosts: all
   become: 'yes'
   vars:
+    molecule_driver: '{{ lookup(''env'', ''MOLECULE_DRIVER_NAME'') }}'
     powershell_linux_modules:
       - name: VMware.PowerCLI
         version: 12.7.0.20091289
