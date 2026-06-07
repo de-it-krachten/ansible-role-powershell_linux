@@ -39,6 +39,9 @@ platforms:
   ubuntu2404:
     supported: false
     ci: false
+  ubuntu2604:
+    supported: false
+    ci: false
 
 molecule:
   converge:
