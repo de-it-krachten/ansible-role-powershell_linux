@@ -1,3 +1,17 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.8.0...v1.9.0) (2026-07-26)
+
+
+### Bug Fixes
+
+* Standarize vars.yml ([b3f84a2](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/b3f84a24968cba95ee6bdfe381b4a67435945a9e))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([34e5933](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/34e5933dc428ae5d696ca727abd58a9c75c37670))
+* Added support for Fedora 44 ([83d8c45](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/83d8c455ec4d6738e64f8f01a159db5cd6ed3cea))
+* Drop support for Fedora 42 ([6a4b004](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/6a4b004fe374ac4efedc190015f01e3d32e0b4db))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.7.0...v1.8.0) (2026-03-15)
 
 
