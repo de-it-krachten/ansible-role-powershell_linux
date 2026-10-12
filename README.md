@@ -23,7 +23,6 @@ Supported platforms
 - RockyLinux 8
 - OracleLinux 8
 - AlmaLinux 8
-- Debian 11 (Bullseye)
 - Ubuntu 22.04 LTS
 - Fedora 43
 - Fedora 44<sup>1</sup>
