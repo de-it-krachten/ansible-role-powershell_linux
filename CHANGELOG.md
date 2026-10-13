@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.9.0...v1.10.0) (2026-10-13)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([d02905c](https://github.com/de-it-krachten/ansible-role-powershell_linux/commit/d02905c813d2580935bacba79f983a4967188d88))
+
 # [1.9.0](https://github.com/de-it-krachten/ansible-role-powershell_linux/compare/v1.8.0...v1.9.0) (2026-07-26)
 
 
